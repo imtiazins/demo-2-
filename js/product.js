@@ -34,7 +34,7 @@ const swiper = new Swiper('.mySwiper', {
   
   window.addEventListener('DOMContentLoaded', async function () {
     let products = await getProducts();
-    products = products.filter((product) => product.category === 'Dresses');
+    products = products.filter((product) => product.category === 'men');
     displayProductItems(products);
     loadData();
   });

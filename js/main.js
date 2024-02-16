@@ -52,3 +52,57 @@ Array.from(inputs).map((input) => {
     });
   });
 });
+
+
+Array.from(inputs).map((input) => {
+  icons.map((icon) => {
+    icon.innerHTML = `<img src="./images/eye.svg" alt="" />`;
+
+    icon.addEventListener("click", () => {
+      const type = input.getAttribute("type");
+      if (type === "password") {
+        input.setAttribute("type", "text");
+        icon.innerHTML = `<img src="./images/hide.svg" alt="" />`;
+      } else if (type === "text") {
+        input.setAttribute("type", "password");
+        icon.innerHTML = `<img src="./images/eye.svg" alt="" />`;
+      }
+    });
+  });
+});
+
+/* ========== Display Men's Products by Default =========== */
+window.addEventListener('DOMContentLoaded', async function () {
+  let products = await getProducts();
+  const defaultMenProducts = products.filter((product) => product.category === 'men');
+  displayProductItems(defaultMenProducts);
+  loadData();
+});
+
+filters.forEach((filter) => {
+  filters[0].classList.add('active'); // Set men as active by default
+  filter.addEventListener('click', async (e) => {
+    const id = e.target.getAttribute('data-filter');
+    const target = e.target;
+    const products = await getProducts();
+    filters.forEach((btn) => {
+      btn.classList.remove('active');
+    });
+    target.classList.add('active');
+
+    let menuCategory;
+    if (id === "ALL") {
+      // If "ALL" category is selected, display all products
+      menuCategory = products;
+    } else {
+      // Filter products based on the selected category
+      menuCategory = products.filter((product) => product.category === id);
+    }
+
+    displayProductItems(menuCategory);
+    swiper.update();
+  });
+});
+
+
+

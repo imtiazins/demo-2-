@@ -274,7 +274,7 @@ img {
     font-size: 1.6rem;
   }
   .header .hero .row .col h1 {
-    font-size: 7rem;
+    font-size: 5rem;
   }
   .header .hero .row .col p {
     font-size: 1.6rem;
@@ -288,7 +288,7 @@ img {
 }
 @media (max-width: 567px) {
   .header .hero {
-    height: 100vh;
+    height: 50vh;
     margin: 0 1rem;
   }
   .header .hero .row .col .subtitle {
@@ -306,7 +306,7 @@ img {
     padding: 1.2rem 4rem;
   }
   .header .hero .row img {
-    width: 25rem;
+    width: 21rem;
   }
 }
 /* ========== Collection =========== */
